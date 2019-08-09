@@ -19,6 +19,10 @@ inputs:
   repo: string
 
 outputs:
+  DoubleMu.root:
+    type: File
+    outputSource:
+      step1/DoubleMu.root
   step1.log:
     type: File
     outputSource:
@@ -29,4 +33,4 @@ steps:
     run: step1.cwl
     in:
       repo: repo
-    out: [step1.log]
+    out: [DoubleMu.root, step1.log]
