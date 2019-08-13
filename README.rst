@@ -91,16 +91,16 @@ The demo will create ROOT file containing the analyzed data.
 Local testing
 =============
 
-The workflow can be tested locally (i.e. outside reana), but it requires changes
-
-
+The workflow can be tested locally (i.e. outside reana), but it requires some
+minor changes, i.e. removing the commands that set up again the CMS env
+variables, namely:
 
 .. code-block:: console
 
-    $ mkdir cwl-local-run
-    $ cd cwl-local-run
-    $ cwltool --quiet --outdir="results" ../workflow/cwl/workflow.cwl ../workflow/cwl/input.yml
-
+      $ source /opt/cms/cmsset_default.sh
+      $ scramv1 project CMSSW CMSSW_5_3_32
+      $ cd CMSSW_5_3_32/src
+      $ eval `scramv1 runtime -sh`
 
 Running the example on REANA cloud
 ==================================
